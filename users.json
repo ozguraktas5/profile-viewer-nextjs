@@ -1,0 +1,32 @@
+[
+  {
+    "id": "1",
+    "slug": "john-doe",
+    "name": "John Doe",
+    "title": "Software Engineer",
+    "location": "San Francisco, CA",
+    "bio": "Experienced Software Engineer with a passion for developing innovative programs that expedite the efficiency and effectiveness of organizational success.",
+    "profilePicture": "https://xsgames.co/randomusers/assets/avatars/female/77.jpg",
+    "likes": 124
+  },
+  {
+    "id": "2",
+    "slug": "jane-smith",
+    "name": "Jane Smith",
+    "title": "Product Manager",
+    "location": "New York, NY",
+    "bio": "Dedicated Product Manager with over 5 years of experience in the tech industry, specializing in project coordination and team leadership.",
+    "profilePicture": "https://xsgames.co/randomusers/assets/avatars/female/78.jpg",
+    "likes": 185
+  },
+  {
+    "id": "3",
+    "slug": "mike-jones",
+    "name": "Mike Jones",
+    "title": "UI/UX Designer",
+    "location": "Austin, TX",
+    "bio": "Creative UI/UX Designer with a strong background in designing interfaces that improve user experience and user interaction.",
+    "profilePicture": "https://xsgames.co/randomusers/assets/avatars/female/64.jpg",
+    "likes": 156
+  }
+]
