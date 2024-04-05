@@ -1,13 +1,15 @@
 import { NextPage } from "next";
 import { FormEventHandler, useState } from "react";
 import { signIn } from "next-auth/react";
-import { useRouter } from "next/navigation";
+import { useRouter } from "next/router";
 
 interface Props {}
 
 const SignIn: NextPage = (props): JSX.Element => {
   const [userInfo, setUserInfo] = useState({ name: "", email: "" });
+  const [error, setError] = useState("");
   const router = useRouter();
+
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
 
@@ -18,18 +20,24 @@ const SignIn: NextPage = (props): JSX.Element => {
     });
     console.log(res);
 
-    if (res?.error) {
-      console.error("Sign in error:", res.error);
-    } else {
-      // Redirect to admin page
+    if (!res?.error) {
+      const userData = {
+        name: userInfo.name,
+        email: userInfo.email,
+      };
+
       router.push("/admin");
+    } else {
+      setError("Geçersiz kullanıcı adı veya şifre");
+      console.error("Sign in error:", res.error);
     }
   };
   return (
     <div className="sign-in-form">
       <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        <label htmlFor="username">Name: </label>
+        <h1>Giriş</h1>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <label htmlFor="username">İsim: </label>
         <input
           value={userInfo.name}
           onChange={({ target }) =>
@@ -38,7 +46,7 @@ const SignIn: NextPage = (props): JSX.Element => {
           type="name"
           placeholder="ali"
         />
-        <label htmlFor="email">Email: </label>
+        <label htmlFor="email">Eposta: </label>
         <input
           value={userInfo.email}
           onChange={({ target }) =>
@@ -47,7 +55,7 @@ const SignIn: NextPage = (props): JSX.Element => {
           type="email"
           placeholder="aligel@example.com"
         />
-        <input type="submit" value="Login" />
+        <input type="submit" value="Giriş Yap" />
       </form>
     </div>
   );

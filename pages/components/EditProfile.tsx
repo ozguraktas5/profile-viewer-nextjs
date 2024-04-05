@@ -1,89 +1,82 @@
 import { useState } from "react";
-import { useRouter } from "next/navigation";
 import { Profile } from "@/types/types";
 
 interface EditProfileProps {
   profile: Profile;
+  onSave: (updatedProfile: Profile) => void;
 }
 
-const EditProfile: React.FC<EditProfileProps> = ({ profile }) => {
-  const [formData, setFormData] = useState({
-    name: profile.name,
-    title: profile.title,
-    location: profile.location,
-    bio: profile.bio,
-  });
-
-  const router = useRouter();
+const EditProfile: React.FC<EditProfileProps> = ({ profile, onSave }) => {
+  const [editedProfile, setEditedProfile] = useState<Profile>(profile);
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
   ) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value,
-    });
+    const { name, value } = event.target;
+    setEditedProfile((prevProfile) => ({
+      ...prevProfile,
+      [name]: value,
+    }));
   };
 
-  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
-    e.preventDefault();
-    // Verileri gönderme işlemi
-    try {
-      // Örneğin: API'ye formData'yı göndermek
-      console.log("Gönderilen veriler:", formData);
-      // Profil güncellendiğinde kullanıcıyı profiline yönlendir
-      router.push("/profile");
-    } catch (error) {
-      console.error("Profil güncelleme hatası:", error);
-    }
+  const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
+    event.preventDefault();
+    onSave(editedProfile);
   };
 
   return (
-    <div>
-      <h1>Edit Profile</h1>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor="name">Name:</label>
-          <input
-            type="text"
-            id="name"
-            name="name"
-            value={formData.name}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="title">Title:</label>
-          <input
-            type="text"
-            id="title"
-            name="title"
-            value={formData.title}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="location">Location:</label>
-          <input
-            type="text"
-            id="location"
-            name="location"
-            value={formData.location}
-            onChange={handleChange}
-          />
-        </div>
-        <div>
-          <label htmlFor="bio">Bio:</label>
-          <textarea
-            id="bio"
-            name="bio"
-            value={formData.bio}
-            onChange={handleChange}
-          />
-        </div>
-        <button type="submit">Submit</button>
-      </form>
-    </div>
+    <form onSubmit={handleSubmit}>
+      <div>
+        <label htmlFor="name">Name:</label>
+        <input
+          type="text"
+          id="name"
+          name="name"
+          value={editedProfile.name}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="title">Title:</label>
+        <input
+          type="text"
+          id="title"
+          name="title"
+          value={editedProfile.title}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="location">Location:</label>
+        <input
+          type="text"
+          id="location"
+          name="location"
+          value={editedProfile.location}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="bio">Bio:</label>
+        <textarea
+          id="bio"
+          name="bio"
+          value={editedProfile.bio}
+          onChange={handleChange}
+        />
+      </div>
+      <div>
+        <label htmlFor="likes">Likes:</label>
+        <input
+          type="number"
+          id="likes"
+          name="likes"
+          value={editedProfile.likes}
+          onChange={handleChange}
+        />
+      </div>
+      <button type="submit">Save</button>
+    </form>
   );
 };
 
