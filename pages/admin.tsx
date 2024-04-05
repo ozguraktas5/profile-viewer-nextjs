@@ -14,6 +14,22 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
   const router = useRouter();
   const [profiles, setProfiles] = useState<Profile[]>(initialProfiles);
   const [editingProfile, setEditingProfile] = useState<Profile | null>(null);
+  const johnDoeProfile = profiles.find(
+    (profile) => profile.name === "John Doe"
+  );
+
+  const handleLike = (profileId: string) => {
+    if (johnDoeProfile?.id === profileId) {
+      return;
+    }
+    const updatedProfiles = profiles.map((profile) => {
+      if (profile.id === profileId) {
+        return { ...profile, likes: profile.likes + 1 };
+      }
+      return profile;
+    });
+    setProfiles(updatedProfiles);
+  };
 
   const handleEditProfile = (profile: Profile) => {
     setEditingProfile(profile);
@@ -36,6 +52,10 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
     router.push("/api/auth/signin");
   };
 
+  const canEditProfile = (profile: Profile): boolean => {
+    return profile.name === "John Doe";
+  };
+
   return (
     <>
       <div>
@@ -45,11 +65,20 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
           <div>
             {profiles.map((profile) => (
               <div key={profile.id}>
-                <ProfileCard profile={profile} />
-                <button onClick={() => handleEditProfile(profile)}>Edit</button>
-                <button onClick={handleLogout}>Logout</button>
+                <ProfileCard
+                  profile={profile}
+                  onLike={() => handleLike(profile.id)}
+                  hideLikeButton={profile.name === "John Doe"}
+                />
+
+                {canEditProfile(profile) && (
+                  <button onClick={() => handleEditProfile(profile)}>
+                    Edit
+                  </button>
+                )}
               </div>
             ))}
+            <button onClick={handleLogout}>Logout</button>
           </div>
         )}
       </div>
