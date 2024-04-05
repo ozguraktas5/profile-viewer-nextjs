@@ -68,7 +68,7 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
                 <ProfileCard
                   profile={profile}
                   onLike={() => handleLike(profile.id)}
-                  hideLikeButton={profile.name === "John Doe"}
+                  hideLikeButton={johnDoeProfile?.id === profile.id}
                 />
 
                 {canEditProfile(profile) && (

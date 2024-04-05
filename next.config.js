@@ -1,4 +1,4 @@
-const nextConfig = {
+module.exports = {
   async redirects() {
     return [
       {
@@ -6,8 +6,6 @@ const nextConfig = {
         destination: '/user/[slug]', 
         permanent: true, 
       },
-    ]
+    ];
   },
-}
-
-module.exports = nextConfig;
+};

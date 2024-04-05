@@ -1,5 +1,5 @@
 import { GetServerSideProps, NextPage } from "next";
-import { useRouter } from "next/router"; 
+import Link from "next/link";
 import { Profile } from "@/types/types";
 import profilesData from "@/users.json";
 
@@ -8,14 +8,25 @@ interface ProfilePageProps {
 }
 
 const UserProfile: NextPage<ProfilePageProps> = ({ profile }) => {
-  const router = useRouter();
-
-  if (router.isFallback) {
-    return <div>Loading...</div>;
-  }
-
   return (
     <div>
+      <nav aria-label="breadcrumb">
+        <ol className="breadcrumb">
+          <li className="breadcrumb-item">
+            <Link href="/">
+              <a>Ana Sayfa</a>
+            </Link>
+          </li>
+          <li className="breadcrumb-item">
+            <Link href="/user">
+              <a>Kullanıcılar</a>
+            </Link>
+          </li>
+          <li className="breadcrumb-item active" aria-current="page">
+            {profile.name}
+          </li>
+        </ol>
+      </nav>
       <h1>{profile.name}</h1>
       <p>{profile.title}</p>
       <p>{profile.location}</p>
@@ -30,6 +41,13 @@ export const getServerSideProps: GetServerSideProps<ProfilePageProps> = async (
   context
 ) => {
   const { slug } = context.params;
+  if (!slug) {
+    return {
+      notFound: true,
+    };
+  }
+
+  // Veriyi dış API'den getirme yerine, yerel veriye erişiyoruz
   const fetchedProfiles: Profile[] = profilesData;
 
   const profile = fetchedProfiles.find((profile) => profile.slug === slug);
