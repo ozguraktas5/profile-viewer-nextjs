@@ -1,7 +1,5 @@
 import React from "react";
 import { Profile } from "@/types/types";
-import { useState } from "react";
-
 interface ProfileCardProps {
   profile: Profile;
   onLike: () => void;
