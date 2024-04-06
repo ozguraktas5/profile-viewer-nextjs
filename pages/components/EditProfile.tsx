@@ -61,6 +61,9 @@ interface EditProfileProps {
 
 const EditProfile: React.FC<EditProfileProps> = ({ profile, onSave }) => {
   const defaultProfile: Profile = {
+    id: "",
+    slug: "",
+    profilePicture: "",
     name: "",
     title: "",
     location: "",
