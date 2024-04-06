@@ -60,7 +60,16 @@ interface EditProfileProps {
 }
 
 const EditProfile: React.FC<EditProfileProps> = ({ profile, onSave }) => {
-  const [editedProfile, setEditedProfile] = useState<Profile>(profile);
+  const defaultProfile: Profile = {
+    name: "",
+    title: "",
+    location: "",
+    bio: "",
+    likes: 0,
+  };
+  const [editedProfile, setEditedProfile] = useState<Profile>(
+    profile || defaultProfile
+  );
 
   const handleChange = (
     event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
