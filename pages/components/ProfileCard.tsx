@@ -1,6 +1,7 @@
 import React from "react";
 import { Profile } from "@/types/types";
 import styles from "../../styles/Home.module.css";
+import Image from 'next/image';
 
 interface ProfileCardProps {
   profile: Profile;
@@ -19,10 +20,12 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 
   return (
     <div className={styles["profileCard"]}>
-      <img
+      <Image
         src={profile.profilePicture}
         className={styles["profilePicture"]}
         alt={profile.name}
+        width={200}
+        height={200}
       />
       <h2 className={styles["profileName"]}>{profile.name}</h2>
       <p>{profile.title}</p>
