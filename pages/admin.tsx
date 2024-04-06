@@ -5,6 +5,7 @@ import ProfileCard from "./components/ProfileCard";
 import EditProfile from "./components/EditProfile";
 import { Profile } from "@/types/types";
 import profilesData from "@/users.json";
+import styles from "@/styles/Home.module.css";
 
 interface Props {
   profiles: Profile[];
@@ -62,16 +63,18 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
         {editingProfile ? (
           <EditProfile profile={editingProfile} onSave={handleSaveProfile} />
         ) : (
-          <div>
+          <div className={styles.allProfile}>
             {profiles.map((profile) => (
-              <div key={profile.id}> 
+              <div key={profile.id}>
                 <ProfileCard
                   profile={profile}
                   onLike={() => handleLike(profile.id)}
                   hideLikeButton={johnDoeProfile?.id === profile.id}
                 />
                 {canEditProfile(profile) && (
-                  <button onClick={() => handleEditProfile(profile)}>Edit</button> 
+                  <button onClick={() => handleEditProfile(profile)}>
+                    Edit
+                  </button>
                 )}
               </div>
             ))}

@@ -28,35 +28,39 @@ const SignIn: NextPage = (props): JSX.Element => {
 
       router.push("/admin");
     } else {
-      setError("Geçersiz kullanıcı adı veya şifre");
+      setError("Invalid name or password");
       console.error("Sign in error:", res.error);
     }
   };
   return (
-    <div className="sign-in-form">
-      <form onSubmit={handleSubmit}>
-        <h1>Login</h1>
-        {error && <p style={{ color: "red" }}>{error}</p>}
-        <label htmlFor="username">Name: </label>
-        <input
-          value={userInfo.name}
-          onChange={({ target }) =>
-            setUserInfo({ ...userInfo, name: target.value })
-          }
-          type="name"
-          placeholder="ali"
-        />
-        <label htmlFor="email">Email: </label>
-        <input
-          value={userInfo.email}
-          onChange={({ target }) =>
-            setUserInfo({ ...userInfo, email: target.value })
-          }
-          type="email"
-          placeholder="aligel@example.com"
-        />
-        <input type="submit" value="Login" />
-      </form>
+    <div className="container">
+      <div className="sign-in-form">
+        <form onSubmit={handleSubmit}>
+          <h1>Login</h1>
+          {error && <p style={{ color: "red" }}>{error}</p>}
+          <label htmlFor="name">Name: </label>
+          <input
+            value={userInfo.name}
+            onChange={({ target }) =>
+              setUserInfo({ ...userInfo, name: target.value })
+            }
+            type="text"
+            placeholder="ali"
+            name="name"
+          />
+          <label htmlFor="email">Email: </label>
+          <input
+            value={userInfo.email}
+            onChange={({ target }) =>
+              setUserInfo({ ...userInfo, email: target.value })
+            }
+            type="email"
+            placeholder="aligel@example.com"
+            name="email"
+          />
+          <input type="submit" value="Login" />
+        </form>
+      </div>
     </div>
   );
 };
