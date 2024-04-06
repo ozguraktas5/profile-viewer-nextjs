@@ -31,14 +31,14 @@ const authOptions: NextAuthOptions = {
   pages: {
     signIn: "/auth/signin",
   },
+
   callbacks: {
-    async jwt(params) {
-      if (params.user) {
-        if ("role" in params.user) {
-          params.token.role = params.user.role;
-        }
+    jwt(params) {
+      if (params.user?.role) {
+        params.token.role = params.user.role;
       }
-      return Promise.resolve(params);
+
+      return params.token;
     },
   },
 };
