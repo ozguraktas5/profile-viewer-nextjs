@@ -32,12 +32,13 @@ const authOptions: NextAuthOptions = {
     signIn: "/auth/signin",
   },
   callbacks: {
-    jwt(params) {
-      if (params.user?.role) {
-        params.token.role = params.user.role;
+    async jwt(params) {
+      if (params.user) {
+        if ("role" in params.user) {
+          params.token.role = params.user.role;
+        }
       }
-
-      return params.token;
+      return Promise.resolve(params);
     },
   },
 };
