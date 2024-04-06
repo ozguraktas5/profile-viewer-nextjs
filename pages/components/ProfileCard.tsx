@@ -29,8 +29,8 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
             src={profile.profilePicture}
             className={styles["profilePicture"]}
             alt={profile.name}
-            width={200}
-            height={200}
+            width={120}
+            height={120}
           />
           <h2 className={styles["profileName"]}>{profile.name}</h2>
           <p>{profile.title}</p>
