@@ -35,9 +35,9 @@ const SignIn: NextPage = (props): JSX.Element => {
   return (
     <div className="sign-in-form">
       <form onSubmit={handleSubmit}>
-        <h1>Giriş</h1>
+        <h1>Login</h1>
         {error && <p style={{ color: "red" }}>{error}</p>}
-        <label htmlFor="username">İsim: </label>
+        <label htmlFor="username">Name: </label>
         <input
           value={userInfo.name}
           onChange={({ target }) =>
@@ -46,7 +46,7 @@ const SignIn: NextPage = (props): JSX.Element => {
           type="name"
           placeholder="ali"
         />
-        <label htmlFor="email">Eposta: </label>
+        <label htmlFor="email">Email: </label>
         <input
           value={userInfo.email}
           onChange={({ target }) =>
@@ -55,7 +55,7 @@ const SignIn: NextPage = (props): JSX.Element => {
           type="email"
           placeholder="aligel@example.com"
         />
-        <input type="submit" value="Giriş Yap" />
+        <input type="submit" value="Login" />
       </form>
     </div>
   );

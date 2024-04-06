@@ -64,17 +64,14 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
         ) : (
           <div>
             {profiles.map((profile) => (
-              <div key={profile.id}>
+              <div key={profile.id}> 
                 <ProfileCard
                   profile={profile}
                   onLike={() => handleLike(profile.id)}
                   hideLikeButton={johnDoeProfile?.id === profile.id}
                 />
-
                 {canEditProfile(profile) && (
-                  <button onClick={() => handleEditProfile(profile)}>
-                    Edit
-                  </button>
+                  <button onClick={() => handleEditProfile(profile)}>Edit</button> 
                 )}
               </div>
             ))}
