@@ -43,14 +43,14 @@ Copy code <br>
 npm run dev <br>
 Tarayıcınızda http://localhost:3000 adresine gidin. <br>
 
-** Giriş yapmak için gerekli bilgileri girin (Name: John Doe, Email: john.doe@example.com) ve "Login" düğmesine tıklayın. **
+**Giriş yapmak için gerekli bilgileri girin (Name: John Doe, Email: john.doe@example.com) ve "Login" düğmesine tıklayın.**
 
-** Admin paneline yönlendirileceksiniz. Burada kullanıcı profillerini görebilir, düzenleyebilir ve beğenebilirsiniz. **
+**Admin paneline yönlendirileceksiniz. Burada kullanıcı profillerini görebilir, düzenleyebilir ve beğenebilirsiniz.**
 
-** Edit butonuna tıklayarak Admin olan John Doe'nin bilgilerini değiştirebilirsiniz **
+**Edit butonuna tıklayarak Admin olan John Doe'nin bilgilerini değiştirebilirsiniz**
 
-** John Doe harici diğer iki kullanıcının profilini beğenmek isterseniz Card yapılarının altında Like butonu mevcut. **
+**John Doe harici diğer iki kullanıcının profilini beğenmek isterseniz Card yapılarının altında Like butonu mevcut.**
 
-** localhost:3000/profile/jane-smith ve localhost:3000/profile/mike-jones url'lerine giderek kullanıcıların profillerine doğrudan erişim sağlayabilirsiniz. **
+**localhost:3000/profile/jane-smith ve localhost:3000/profile/mike-jones url'lerine giderek kullanıcıların profillerine doğrudan erişim sağlayabilirsiniz.**
 
-** Çıkış yapmak için sağ üst köşede bulunan "Logout" düğmesine tıklayın. **
+**Çıkış yapmak için sağ üst köşede bulunan "Logout" düğmesine tıklayın.**
