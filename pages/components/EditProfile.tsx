@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Profile } from "@/types/types";
-import { EditProfileProps } from "@/types/types";
 
 const Form = styled.form`
   max-width: 25rem;
@@ -54,6 +53,11 @@ const Button = styled.button`
     background-color: #0056b3;
   }
 `;
+
+interface EditProfileProps {
+  profile: Profile;
+  onSave: (editedProfile: Profile) => void;
+}
 
 const EditProfile: React.FC<EditProfileProps> = ({ profile, onSave }) => {
   const [editedProfile, setEditedProfile] = useState<Profile>(profile);
