@@ -1,36 +1,56 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+## Proje Adı
 
-## Getting Started
+profile-viewer-nextjs (CASE)
 
-First, run the development server:
+## Açıklama
 
-```bash
+Next.js ve TypeScript'i kullanarak zengin özelliklere sahip bir profesyonel profil görüntüleme uygulaması geliştirme amaçlı yapılan bir projedir. Bu uygulama, kullanıcı profillerini görüntüleyecek, bilgi tabanlı URL'ler kullanarak bunlar arasında gezinmeye izin verecek, kullanıcıların profillerini güncellemesine olanak sağlayacak, kimlik doğrulama simülasyonu yapacak ve bir profili beğenmek gibi etkileşimli bir özellik içerecek. Bu proje, React, Next.js, TypeScript, durum yönetimi ve gelişmiş web uygulaması özelliklerini yansıtmak istedik.
+
+## Kullanılan Araçlar
+
+Next.js: Next.js, React tabanlı bir web framework'üdür.
+NextAuth: NextAuth, kimlik doğrulama ve oturum yönetimi için bir kütüphanedir.
+TypeScript: TypeScript, JavaScript'e tip güvenliği sağlayan bir programlama dilidir.
+Styled Components: Styled Components, CSS-in-JS yaklaşımını benimseyen bir kütüphanedir.
+JSON dosyası: Verilerin saklanması için JSON formatı kullanılmıştır.
+
+## Kurulum
+
+## Repoyu klonlayın:
+
+bash
+Copy code
+git clone https://github.com/ozguraktas5/profile-viewer-nextjs.git
+
+## Proje dizinine gidin:
+
+bash
+Copy code
+cd my-app
+
+## Bağımlılıkları yükleyin:
+
+bash
+Copy code
+npm install
+
+## Nasıl Kullanılır
+
+## Proje dizininde aşağıdaki komutu çalıştırarak uygulamayı başlatın:
+
+bash
+Copy code
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Tarayıcınızda http://localhost:3000 adresine gidin.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Giriş yapmak için gerekli bilgileri girin (Name: John Doe, Email: john.doe@example.com) ve "Login" düğmesine tıklayın. 
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Admin paneline yönlendirileceksiniz. Burada kullanıcı profillerini görebilir, düzenleyebilir ve beğenebilirsiniz.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+## Edit butonuna tıklayarak Admin olan John Doe'nin bilgilerini değiştirebilirsiniz
 
-## Learn More
+## John Doe harici diğer iki kullanıcının profilini beğenmek isterseniz Card yapılarının altında Like butonu mevcut.
 
-To learn more about Next.js, take a look at the following resources:
+## localhost:3000/profile/jane-smith ve localhost:3000/profile/mike-jones url'lerine giderek kullanıcıların profillerine doğrudan erişim sağlayabilirsiniz.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+## Çıkış yapmak için sağ üst köşede bulunan "Logout" düğmesine tıklayın.
