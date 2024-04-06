@@ -1,6 +1,12 @@
 import NextAuth, { NextAuthOptions } from "next-auth";
 import CredentialsProvider from "next-auth/providers/credentials";
 
+interface User {
+  name: string;
+  email: string;
+  role?: string;
+}
+
 const authOptions: NextAuthOptions = {
   session: {
     strategy: "jwt",
@@ -34,7 +40,7 @@ const authOptions: NextAuthOptions = {
 
   callbacks: {
     jwt(params) {
-      if (params.user?.role) {
+      if (params.user && "role" in params.user && params.user.role) {
         params.token.role = params.user.role;
       }
 

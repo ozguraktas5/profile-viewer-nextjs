@@ -3,6 +3,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 type Data = {
   name: string;
   email: string;
+  role?: string;
 };
 
 export default function handler(
