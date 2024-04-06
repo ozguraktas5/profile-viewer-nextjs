@@ -5,7 +5,7 @@ import ProfileCard from "./components/ProfileCard";
 import EditProfile from "./components/EditProfile";
 import { Profile } from "@/types/types";
 import profilesData from "@/users.json";
-import styles from "@/styles/Home.module.css";
+import styles from "../styles/Home.module.css";
 
 interface Props {
   profiles: Profile[];
@@ -64,6 +64,11 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
           <EditProfile profile={editingProfile} onSave={handleSaveProfile} />
         ) : (
           <div className={styles.allProfile}>
+            <div className={styles.logoutButtonContainer}>
+              <button onClick={handleLogout} className={styles.logoutButton}>
+                Logout
+              </button>
+            </div>
             {profiles.map((profile) => (
               <div key={profile.id}>
                 <ProfileCard
@@ -72,13 +77,15 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
                   hideLikeButton={johnDoeProfile?.id === profile.id}
                 />
                 {canEditProfile(profile) && (
-                  <button onClick={() => handleEditProfile(profile)}>
+                  <button
+                    onClick={() => handleEditProfile(profile)}
+                    className={styles.editButton}
+                  >
                     Edit
                   </button>
                 )}
               </div>
             ))}
-            <button onClick={handleLogout}>Logout</button>
           </div>
         )}
       </div>

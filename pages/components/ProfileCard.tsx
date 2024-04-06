@@ -1,7 +1,6 @@
-// components/ProfileCard.tsx
 import React from "react";
 import { Profile } from "@/types/types";
-import styles from "@/styles/Home.module.css";
+import styles from "../../styles/Home.module.css";
 
 interface ProfileCardProps {
   profile: Profile;
@@ -14,25 +13,24 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
   onLike,
   hideLikeButton,
 }) => {
+  const handleLike = () => {
+    onLike();
+  };
+
   return (
-    <div className={styles.profileCard}>
-      <img
-        src={profile.profilePicture}
-        alt={profile.name}
-        className={styles.profilePicture}
-      />
-      <div className={styles.profileContent}>
-        <h2>{profile.name}</h2>
-        <p>{profile.title}</p>
-        <p>{profile.location}</p>
-        <p>{profile.bio}</p>
-        <p>Likes: {profile.likes}</p>
-      </div>
+    <div className={styles["profileCard"]}>
+      <img src={profile.profilePicture} className={styles["profilePicture"]} alt={profile.name} />
+      <h2 className={styles["profileName"]}>{profile.name}</h2>
+      <p>{profile.title}</p>
+      <p>{profile.location}</p>
+      <p>{profile.bio}</p>
+      <p>Likes: {profile.likes}</p>
       {!hideLikeButton && (
-        <button className={styles.likeButton} onClick={onLike}>
+        <button className={styles["likeButton"]} onClick={handleLike}>
           Like
         </button>
       )}
+      
     </div>
   );
 };
