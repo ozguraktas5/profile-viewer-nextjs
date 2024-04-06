@@ -20,28 +20,28 @@ JSON dosyası: Verilerin saklanması için JSON formatı kullanılmıştır.
 
 bash <br>
 Copy code <br>
-git clone https://github.com/ozguraktas5/profile-viewer-nextjs.git
+git clone https://github.com/ozguraktas5/profile-viewer-nextjs.git <br>
 
 ## Proje dizinine gidin:
 
 
-Copy code
-cd my-app
+Copy code <br>
+cd my-app <br>
 
 ## Bağımlılıkları yükleyin:
 
-bash
-Copy code
-npm install
+bash <br>
+Copy code <br>
+npm install <br>
 
 ## Nasıl Kullanılır
 
 ## Proje dizininde aşağıdaki komutu çalıştırarak uygulamayı başlatın:
 
-bash
-Copy code
-npm run dev
-Tarayıcınızda http://localhost:3000 adresine gidin.
+bash <br>
+Copy code <br>
+npm run dev <br>
+Tarayıcınızda http://localhost:3000 adresine gidin. <br>
 
 ## Giriş yapmak için gerekli bilgileri girin (Name: John Doe, Email: john.doe@example.com) ve "Login" düğmesine tıklayın. 
 
