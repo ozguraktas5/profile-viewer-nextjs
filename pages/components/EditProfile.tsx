@@ -1,10 +1,54 @@
-import { useState } from "react";
+import React, { useState } from "react";
+import styled from "styled-components";
 import { Profile } from "@/types/types";
 
-interface EditProfileProps {
-  profile: Profile;
-  onSave: (updatedProfile: Profile) => void;
-}
+const Form = styled.form`
+  max-width: 25rem;
+  margin: 0 auto;
+  padding: 1.25rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem;
+`;
+
+const FormGroup = styled.div`
+  margin-bottom: 0.625rem;
+`;
+
+const Label = styled.label`
+  display: block;
+  margin-bottom: 0.3125rem;
+`;
+
+const Input = styled.input`
+  width: 100%;
+  padding: 0.625rem;
+  margin-bottom: 0.3125rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem;
+`;
+
+const TextArea = styled.textarea`
+  width: 100%;
+  padding: 0.625rem;
+  margin-bottom: 0.3125rem;
+  border: 1px solid #ccc;
+  border-radius: 0.3125rem;
+`;
+
+const Button = styled.button`
+  width: 100%;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 0.3125rem;
+  padding: 0.625rem;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+
+  &:hover {
+    background-color: #0056b3;
+  }
+`;
 
 const EditProfile: React.FC<EditProfileProps> = ({ profile, onSave }) => {
   const [editedProfile, setEditedProfile] = useState<Profile>(profile);
@@ -25,58 +69,58 @@ const EditProfile: React.FC<EditProfileProps> = ({ profile, onSave }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit}>
-      <div>
-        <label htmlFor="name">Name:</label>
-        <input
+    <Form onSubmit={handleSubmit}>
+      <FormGroup>
+        <Label htmlFor="name">Name:</Label>
+        <Input
           type="text"
           id="name"
           name="name"
           value={editedProfile.name}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label htmlFor="title">Title:</label>
-        <input
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="title">Title:</Label>
+        <Input
           type="text"
           id="title"
           name="title"
           value={editedProfile.title}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label htmlFor="location">Location:</label>
-        <input
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="location">Location:</Label>
+        <Input
           type="text"
           id="location"
           name="location"
           value={editedProfile.location}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label htmlFor="bio">Bio:</label>
-        <textarea
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="bio">Bio:</Label>
+        <TextArea
           id="bio"
           name="bio"
           value={editedProfile.bio}
           onChange={handleChange}
         />
-      </div>
-      <div>
-        <label htmlFor="likes">Likes:</label>
-        <input
+      </FormGroup>
+      <FormGroup>
+        <Label htmlFor="likes">Likes:</Label>
+        <Input
           type="number"
           id="likes"
           name="likes"
           value={editedProfile.likes}
           onChange={handleChange}
         />
-      </div>
-      <button type="submit">Save</button>
-    </form>
+      </FormGroup>
+      <Button type="submit">Save</Button>
+    </Form>
   );
 };
 

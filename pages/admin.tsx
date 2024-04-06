@@ -58,13 +58,15 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
   };
 
   return (
-    <>
+    <div className={styles.body}>
       <div>
+        <div className={styles.welcomeMessage}>Welcome John Doe</div>
         {editingProfile ? (
           <EditProfile profile={editingProfile} onSave={handleSaveProfile} />
         ) : (
           <div className={styles.allProfile}>
             <div className={styles.logoutButtonContainer}>
+              
               <button onClick={handleLogout} className={styles.logoutButton}>
                 Logout
               </button>
@@ -76,6 +78,8 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
                   onLike={() => handleLike(profile.id)}
                   hideLikeButton={johnDoeProfile?.id === profile.id}
                 />
+                
+
                 {canEditProfile(profile) && (
                   <button
                     onClick={() => handleEditProfile(profile)}
@@ -89,7 +93,7 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

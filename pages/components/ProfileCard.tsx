@@ -19,18 +19,23 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
 
   return (
     <div className={styles["profileCard"]}>
-      <img src={profile.profilePicture} className={styles["profilePicture"]} alt={profile.name} />
+      <img
+        src={profile.profilePicture}
+        className={styles["profilePicture"]}
+        alt={profile.name}
+      />
       <h2 className={styles["profileName"]}>{profile.name}</h2>
       <p>{profile.title}</p>
       <p>{profile.location}</p>
       <p>{profile.bio}</p>
-      <p>Likes: {profile.likes}</p>
-      {!hideLikeButton && (
-        <button className={styles["likeButton"]} onClick={handleLike}>
-          Like
-        </button>
-      )}
-      
+      <div className={styles["profileActions"]}>
+        <p>Likes: {profile.likes}</p>
+        {!hideLikeButton && (
+          <button className={styles["likeButton"]} onClick={handleLike}>
+            Like
+          </button>
+        )}
+      </div>
     </div>
   );
 };

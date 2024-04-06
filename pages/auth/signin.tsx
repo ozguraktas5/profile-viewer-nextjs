@@ -2,6 +2,7 @@ import { NextPage } from "next";
 import { FormEventHandler, useState } from "react";
 import { signIn } from "next-auth/react";
 import { useRouter } from "next/navigation";
+import styles from "../../styles/Home.module.css";
 
 interface Props {}
 
@@ -33,8 +34,8 @@ const SignIn: NextPage = (props): JSX.Element => {
     }
   };
   return (
-    <div className="container">
-      <div className="sign-in-form">
+    <div className={styles["container"]}>
+      <div className={styles["sign-in-form"]}>
         <form onSubmit={handleSubmit}>
           <h1>Login</h1>
           {error && <p style={{ color: "red" }}>{error}</p>}
