@@ -18,13 +18,13 @@ JSON dosyası: Verilerin saklanması için JSON formatı kullanılmıştır.
 
 ## Repoyu klonlayın:
 
-  bash 
-  Copy code
-  git clone https://github.com/ozguraktas5/profile-viewer-nextjs.git
+bash <br>
+Copy code <br>
+git clone https://github.com/ozguraktas5/profile-viewer-nextjs.git
 
 ## Proje dizinine gidin:
 
-bash
+
 Copy code
 cd my-app
 
