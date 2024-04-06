@@ -9,4 +9,8 @@ export interface Profile {
   likes: number;
 }
 
+export interface EditProfileProps {
+  profile: Profile;
+  onSave: (editedProfile: Profile) => void;
+}
 

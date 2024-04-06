@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { Profile } from "@/types/types";
+import { EditProfileProps } from "@/types/types";
 
 const Form = styled.form`
   max-width: 25rem;
