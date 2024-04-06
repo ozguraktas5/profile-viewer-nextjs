@@ -1,19 +1,21 @@
-import Link from "next/link";
+import styles from "../../styles/Home.module.css";
 
 function MikeJones() {
   return (
-    <Link href="/profile/mike-jones">
-      <h1>Name: Mike Jones</h1>
-      <p>Title: UI/UX Designer</p>
-      <p>Location: Austin, TX</p>
-      <p>
-        Bio: Creative UI/UX Designer with a strong background in designing interfaces that improve user experience and user interaction.
-      </p>
+    <div className={styles.profile}>
       <img
+        className={styles.avatar}
         src="https://xsgames.co/randomusers/assets/avatars/female/64.jpg"
         alt="Mike Jones"
       />
-    </Link>
+      <h1 className={styles.name}>Name: Mike Jones</h1>
+      <p className={styles.info}>Title: UI/UX Designer</p>
+      <p className={styles.info}>Location: Austin, TX</p>
+      <p className={styles.bio}>
+        Bio: Creative UI/UX Designer with a strong background in designing
+        interfaces that improve user experience and user interaction.
+      </p>
+    </div>
   );
 }
 

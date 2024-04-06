@@ -37,7 +37,6 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
   };
 
   const handleSaveProfile = (updatedProfile: Profile) => {
-    console.log("Güncellenmiş profil:", updatedProfile);
     const updatedProfiles = profiles.map((profile) => {
       if (profile.id === updatedProfile.id) {
         return updatedProfile;
@@ -66,7 +65,6 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
         ) : (
           <div className={styles.allProfile}>
             <div className={styles.logoutButtonContainer}>
-              
               <button onClick={handleLogout} className={styles.logoutButton}>
                 Logout
               </button>
@@ -78,7 +76,6 @@ const Admin: NextPage<Props> = ({ profiles: initialProfiles }) => {
                   onLike={() => handleLike(profile.id)}
                   hideLikeButton={johnDoeProfile?.id === profile.id}
                 />
-                
 
                 {canEditProfile(profile) && (
                   <button

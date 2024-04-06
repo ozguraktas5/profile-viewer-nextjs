@@ -72,6 +72,10 @@
 }
 
 .profileCard {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   border: 1px solid #ccc;
   border-radius: 0.5rem;
   padding: 1.25rem;
@@ -79,13 +83,14 @@
   background: linear-gradient(to bottom right, #ffffff, #f0f0f0);
   box-shadow: 0 0.25rem 0.375rem rgba(0, 0, 0, 0.1);
   max-width: 21rem;
+  height: 32rem;
   width: 100%;
   text-align: center;
 }
 
 .profilePicture {
   max-width: 18rem;
-  max-height: 6rem;
+  max-height: 10rem;
   border-radius: 50%;
   margin-right: 1.2rem;
 }
@@ -97,15 +102,9 @@
 .likeButton {
   background-color: #007bff;
   color: #fff;
+  padding: 0.5rem 0.7rem;
   border: none;
-  border-radius: 50%;
-  padding: 1rem;
   cursor: pointer;
-}
-
-.profileActions {
-  display: flex;
-  justify-content: space-between;
 }
 
 /* logout button */
@@ -138,6 +137,46 @@
   padding: 0.5rem 0.75rem;
   cursor: pointer;
 }
+
+/* Jane Smith, Mike Jones page */
+
+.profile {
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  text-align: center;
+  background-color: #f9f9f9;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.name {
+  font-size: 24px;
+  margin-bottom: 10px;
+}
+
+.info {
+  font-size: 16px;
+  margin-bottom: 5px;
+}
+
+.bio {
+  font-size: 14px;
+  margin-bottom: 15px;
+}
+
+.avatar {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
 
 /* responsive design */
 

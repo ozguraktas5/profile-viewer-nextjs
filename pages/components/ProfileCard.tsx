@@ -28,7 +28,7 @@ const ProfileCard: React.FC<ProfileCardProps> = ({
       <p>{profile.title}</p>
       <p>{profile.location}</p>
       <p>{profile.bio}</p>
-      <div className={styles["profileActions"]}>
+      <div>
         <p>Likes: {profile.likes}</p>
         {!hideLikeButton && (
           <button className={styles["likeButton"]} onClick={handleLike}>

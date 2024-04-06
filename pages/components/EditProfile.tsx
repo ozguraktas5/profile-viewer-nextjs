@@ -5,34 +5,38 @@ import { Profile } from "@/types/types";
 const Form = styled.form`
   max-width: 25rem;
   margin: 0 auto;
-  padding: 1.25rem;
+  padding: 3rem;
   border: 1px solid #ccc;
-  border-radius: 0.3125rem;
+  border-radius: 0.3rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 `;
 
 const FormGroup = styled.div`
-  margin-bottom: 0.625rem;
+  margin-bottom: 0.6rem;
 `;
 
 const Label = styled.label`
   display: block;
-  margin-bottom: 0.3125rem;
+  margin-bottom: 0.3rem;
 `;
 
 const Input = styled.input`
   width: 100%;
-  padding: 0.625rem;
-  margin-bottom: 0.3125rem;
+  padding: 0.6rem;
+  margin-bottom: 0.3rem;
   border: 1px solid #ccc;
-  border-radius: 0.3125rem;
+  border-radius: 0.3rem;
 `;
 
 const TextArea = styled.textarea`
   width: 100%;
-  padding: 0.625rem;
-  margin-bottom: 0.3125rem;
+  padding: 0.6rem;
+  margin-bottom: 0.3rem;
   border: 1px solid #ccc;
-  border-radius: 0.3125rem;
+  border-radius: 0.3rem;
 `;
 
 const Button = styled.button`
@@ -40,8 +44,8 @@ const Button = styled.button`
   background-color: #007bff;
   color: #fff;
   border: none;
-  border-radius: 0.3125rem;
-  padding: 0.625rem;
+  border-radius: 0.3rem;
+  padding: 0.6rem;
   cursor: pointer;
   transition: background-color 0.3s ease;
 
